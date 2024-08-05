@@ -1074,6 +1074,19 @@ export const FillSolidIcon = createIcon(
   { ...modifiedTablerIconProps, fill: "currentColor" },
 );
 
+export const StrokeWidthExtraThinIcon = createIcon(
+  <>
+    <path
+      d="M4.167 10h11.666"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </>,
+  modifiedTablerIconProps,
+);
+
 export const StrokeWidthBaseIcon = createIcon(
   <>
     <path
