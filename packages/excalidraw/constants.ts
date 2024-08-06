@@ -38,6 +38,7 @@ export const TEXT_TO_CENTER_SNAP_THRESHOLD = 30;
 export const SHIFT_LOCKING_ANGLE = Math.PI / 12;
 export const DEFAULT_LASER_COLOR = "red";
 export const CURSOR_TYPE = {
+  DOT: "dot",
   TEXT: "text",
   CROSSHAIR: "crosshair",
   GRABBING: "grabbing",

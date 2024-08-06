@@ -13,8 +13,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    //"noEmit": true,
+    "noEmit": false,  // Change this to allow emitting JavaScript files
+    "sourceMap": true,  // Add this to generate
+    "jsx": "react-jsx",
+
   },
   "include": ["packages", "excalidraw-app"],
   "exclude": ["packages/excalidraw/types", "examples"]

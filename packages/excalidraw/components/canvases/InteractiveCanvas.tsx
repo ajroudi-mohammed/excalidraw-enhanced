@@ -15,6 +15,7 @@ import type {
 } from "../../element/types";
 import { isRenderThrottlingEnabled } from "../../reactUtils";
 import { renderInteractiveScene } from "../../renderer/interactiveScene";
+import "./Cursor.scss";
 
 type InteractiveCanvasProps = {
   containerRef: React.RefObject<HTMLDivElement>;
@@ -146,30 +147,34 @@ const InteractiveCanvas = (props: InteractiveCanvasProps) => {
   });
 
   return (
-    <canvas
-      className="excalidraw__canvas interactive"
-      style={{
-        width: props.appState.width,
-        height: props.appState.height,
-        cursor: props.appState.viewModeEnabled
-          ? CURSOR_TYPE.GRAB
-          : CURSOR_TYPE.AUTO,
-      }}
-      width={props.appState.width * props.scale}
-      height={props.appState.height * props.scale}
-      ref={props.handleCanvasRef}
-      onContextMenu={props.onContextMenu}
-      onPointerMove={props.onPointerMove}
-      onPointerUp={props.onPointerUp}
-      onPointerCancel={props.onPointerCancel}
-      onTouchMove={props.onTouchMove}
-      onPointerDown={props.onPointerDown}
-      onDoubleClick={
-        props.appState.viewModeEnabled ? undefined : props.onDoubleClick
-      }
-    >
-      {t("labels.drawingCanvas")}
-    </canvas>
+    <>
+      <div className="cursor cursor--dot"></div>
+      <canvas
+        className="excalidraw__canvas interactive"
+        style={{
+          width: props.appState.width,
+          height: props.appState.height,
+          cursor: props.appState.viewModeEnabled
+            ? CURSOR_TYPE.GRAB
+            : CURSOR_TYPE.AUTO,
+        }}
+        width={props.appState.width * props.scale}
+        height={props.appState.height * props.scale}
+        ref={props.handleCanvasRef}
+        onContextMenu={props.onContextMenu}
+        onPointerMove={props.onPointerMove}
+        onPointerUp={props.onPointerUp}
+        onPointerCancel={props.onPointerCancel}
+        onTouchMove={props.onTouchMove}
+        onPointerDown={props.onPointerDown}
+        onDoubleClick={
+          props.appState.viewModeEnabled ? undefined : props.onDoubleClick
+        }
+      >
+        {t("labels.drawingCanvas")}
+      </canvas>
+    </>
+
   );
 };
 

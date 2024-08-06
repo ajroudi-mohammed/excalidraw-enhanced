@@ -98,7 +98,26 @@ export const setCursorForShape = (
         : laserPointerCursorDataURL_darkMode;
     interactiveCanvas.style.cursor = `url(${url}), auto`;
   } else if (!["image", "custom"].includes(appState.activeTool.type)) {
-    interactiveCanvas.style.cursor = CURSOR_TYPE.CROSSHAIR;
+    let clientX = -1;
+    let clientY = -1;
+    const innerCursor = document.querySelector(".cursor--dot") as HTMLElement;
+    interactiveCanvas.style.cursor = "none";
+    const initCursor = () => {
+      document.addEventListener("pointermove", e => {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      });
+      const render = () => {
+        if (innerCursor !== null)
+          innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+
+        requestAnimationFrame(render);
+      };
+      requestAnimationFrame(render);
+    };
+
+    initCursor();
+    /* interactiveCanvas.style.cursor = CURSOR_TYPE.CROSSHAIR; */
   } else if (appState.activeTool.type !== "image") {
     interactiveCanvas.style.cursor = CURSOR_TYPE.AUTO;
   }
