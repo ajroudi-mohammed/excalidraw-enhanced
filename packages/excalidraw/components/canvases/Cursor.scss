@@ -5,11 +5,12 @@
   pointer-events: none;
 }
 .cursor--dot {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   left: -3px;
   top: -3px;
+  visibility: hidden;
   border-radius: 100%;
-  z-index: 11000;
-  background: hsl(175,50%,50%);
+  z-index: 1;
+  background: hsl(0, 0%, 0%);
 }
