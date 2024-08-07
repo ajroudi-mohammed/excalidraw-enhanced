@@ -2,6 +2,7 @@
   "private": true,
   "name": "excalidraw-monorepo",
   "packageManager": "yarn@1.22.22",
+  "main": "main.js",
   "workspaces": [
     "excalidraw-app",
     "packages/excalidraw",
@@ -24,6 +25,7 @@
     "@vitest/ui": "0.32.2",
     "chai": "4.3.6",
     "dotenv": "16.0.1",
+    "electron": "31.3.1",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-prettier": "3.3.1",
@@ -62,6 +64,7 @@
     "prepare": "husky install",
     "prettier": "prettier \"**/*.{css,scss,json,md,html,yml}\" --ignore-path=.eslintignore",
     "start": "yarn --cwd ./excalidraw-app start",
+    "electron": "electron .",
     "start:app:production": "npm run build && npx http-server build -a localhost -p 5001 -o",
     "test:all": "yarn test:typecheck && yarn test:code && yarn test:other && yarn test:app --watch=false",
     "test:app": "vitest",
