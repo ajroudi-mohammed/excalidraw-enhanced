@@ -107,12 +107,16 @@ export const setCursorForShape = (
       appState.theme === THEME.LIGHT
         ? laserPointerCursorDataURL_lightMode
         : laserPointerCursorDataURL_darkMode;
+        console.log("url:", url)
     interactiveCanvas.style.cursor = `url(${url}), auto`;
   } else if (!["image", "custom"].includes(appState.activeTool.type)) {
     if( appState.activeTool.type === "freedraw" ){
 
       innerCursor.style.visibility = "visible";
       interactiveCanvas.style.cursor = "none";
+      appState.theme === THEME.LIGHT
+        ? innerCursor.style.background = "black"
+        : innerCursor.style.background = "white";
       const initCursor = () => {
         document.addEventListener("pointermove", pointerMoveHandler);
         const render = () => {
